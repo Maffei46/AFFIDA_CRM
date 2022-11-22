@@ -1,5 +1,4 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
   <HelloWorld msg="Welcome to Your Vue.js App"/>
 </template>
 
@@ -10,6 +9,9 @@ export default {
   name: 'App',
   components: {
     HelloWorld
+  },
+  mounted(){
+    //window.API.test();
   }
 }
 </script>
