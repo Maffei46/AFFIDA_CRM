@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp');
+
+:root{
+    --mainColor: rgb(255, 255, 255);
+    --mainColorFont: rgb(24, 24, 24);
+    --mainBGColor: rgb(24, 24, 24);
+    --Color2: rgb(14, 14, 14);
+    --Color2Hover: rgb(30, 30, 30);
+    --NavbarShadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    --Color3: rgb(14, 14, 14);
+
+    --addColorFont: rgb(45, 173, 45);
+    --addColorHoverFont: rgb(38, 147, 38);
+    --deleteColorFont: rgb(255, 0, 0);
+    --TitleBarHeight: 40px;
+    --MenuWidth: 200px;
+}
+
+body{
+    background-color: var(--mainBGColor);
+    overflow-x: hidden;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Karla', sans-serif;
+    color: var(--mainColor);
+    transition-duration: 0.2s;
+}
+a{
+    text-decoration: none;
+}
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none; /* Safari */
+        -khtml-user-select: none; /* Konqueror HTML */
+            -moz-user-select: none; /* Old versions of Firefox */
+            -ms-user-select: none; /* Internet Explorer/Edge */
+                user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
+}
+
+@import url('./loaders.scss');
+@import url('./form.scss');
+@import url('./submenu.scss');
+
+
+

@@ -1,24 +1,16 @@
-# crm
+# AFFIDA - CRM
 
-## Project setup
+## DEVELOP MODE
 ```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
+Package.json - main:"background.js"
 ```
 
-### Compiles and minifies for production
+## HOW TO PUBLISH
 ```
-npm run build
+Delete dist_electron folder.
+Delete dist folder.
+Package.json - main:"background.js"
+vue-cli-service electron:build
+Package.json - main:"dist_electron/bundled/background.js"
+electron-builder -p always
 ```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

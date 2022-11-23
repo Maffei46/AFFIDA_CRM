@@ -1,20 +1,50 @@
 'use strict'
 
-import { app, protocol, BrowserWindow,ipcMain } from 'electron'
+import { app, protocol, BrowserWindow,ipcMain,Menu,dialog } from 'electron'
 import { createProtocol } from 'vue-cli-plugin-electron-builder/lib'
 import installExtension, { VUEJS3_DEVTOOLS } from 'electron-devtools-installer'
 import path from 'path';
 
+//STORE
+const Store = require('electron-store');
+const store = new Store();
+
 //AUTO UPDATER
   const log = require('electron-log');
-  const {autoUpdater} = require("electron-updater");
+  // const {autoUpdater} = require("electron-updater");
 
-  autoUpdater.logger = log;
-  autoUpdater.logger.transports.file.level = 'info';
+  // autoUpdater.logger = log;
+  // autoUpdater.logger.transports.file.level = 'info';
   log.info('App starting...');
 
+//MENU
+const updates_actions = require('./server/updates/updates_actions');
+  const template = [
+    { 
+      label: 'File',
+      submenu: [
+        {
+          label: 'Check For Updates',
+          click(){
+            updates_actions.checkAndNotify();
+          }
+        },
+        {
+          label: 'DevTool',
+          click(){
+            win.webContents.openDevTools();
+          }
+        },
+        {
+          label: 'Quit',
+          click(){ app.quit();}
+        }
+      ]
+    }
+  ]
 
-var routes = require('./server/routes');
+
+
 const isDevelopment = process.env.NODE_ENV !== 'production'
 
 // Scheme must be registered before the app is ready
@@ -25,9 +55,13 @@ protocol.registerSchemesAsPrivileged([
 let win;
 async function createWindow() {
   // Create the browser window.
+  console.log(path.join(__dirname, 'favicon.ico'));
   win = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 1600,
+    height: 1200,
+    icon: path.join(__dirname, 'favicon.ico'),
+    autoHideMenuBar: true,
+    frame: false,
     webPreferences: {
       // Use pluginOptions.nodeIntegration, leave this alone
       // See nklayman.github.io/vue-cli-plugin-electron-builder/guide/security.html#node-integration for more info
@@ -53,33 +87,6 @@ async function createWindow() {
 }
 
 
-function sendStatusToWindow(text) {
-  log.info(text);
-  win.webContents.send('message', text);
-}
-
-autoUpdater.on('checking-for-update', () => {
-  sendStatusToWindow('Checking for update...');
-})
-autoUpdater.on('update-available', (info) => {
-  sendStatusToWindow('Update available.');
-})
-autoUpdater.on('update-not-available', (info) => {
-  sendStatusToWindow('Update not available.');
-})
-autoUpdater.on('error', (err) => {
-  sendStatusToWindow('Error in auto-updater. ' + err);
-})
-autoUpdater.on('download-progress', (progressObj) => {
-  let log_message = "Download speed: " + progressObj.bytesPerSecond;
-  log_message = log_message + ' - Downloaded ' + progressObj.percent + '%';
-  log_message = log_message + ' (' + progressObj.transferred + "/" + progressObj.total + ')';
-  sendStatusToWindow(log_message);
-})
-autoUpdater.on('update-downloaded', (info) => {
-  sendStatusToWindow('Update downloaded');
-});
-
 // Quit when all windows are closed.
 app.on('window-all-closed', () => {
   // On macOS it is common for applications and their menu bar
@@ -99,6 +106,8 @@ app.on('activate', () => {
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.on('ready', async () => {
+ 
+
   //checkUpdates.CheckUpdateAndProcess();
   if (isDevelopment && !process.env.IS_TEST) {
     // Install Vue Devtools
@@ -108,8 +117,12 @@ app.on('ready', async () => {
       console.error('Vue Devtools failed to install:', e.toString())
     }
   }
-  autoUpdater.checkForUpdatesAndNotify();
+  const menu = Menu.buildFromTemplate(template);
+  //Menu.setApplicationMenu(menu);
   createWindow()
+
+  var routes = require('./server/routes');
+  routes.start(win,store);
 })
 
 // Exit cleanly on request from parent process in development mode.
@@ -128,3 +141,24 @@ if (isDevelopment) {
 }
 
 
+ipcMain.handle('restart', (event) => {
+  //TODO: Controllare sfondo bianco al riavvio
+  app.relaunch();
+  app.exit();
+});
+
+ipcMain.handle('reduce', (event) => {
+  win.isMinimized() ? win.restore() : win.minimize()
+});
+
+ipcMain.handle('crop', (event) => {
+  win.isMaximized()? win.unmaximize(): win.maximize();
+});
+
+ipcMain.handle('close', (event) => {
+  app.exit();
+});
+
+ipcMain.handle('test', (event) => {
+  console.log('test');
+});

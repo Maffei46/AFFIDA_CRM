@@ -1,0 +1,50 @@
+.subMenu{
+    background-color: var(--Color3);
+    width: max-content;
+    margin: 0 auto;
+    padding: 4px 30px;
+    border-radius: 0px 0px 5px 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 10px;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    border-top: 1px solid rgba(255, 255, 255, 0.132);
+}
+
+.subMenu .title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 5px;
+}
+
+.subMenu .title i{
+    font-size: 14pt;
+}
+.subMenu .title span{
+    font-size: 10pt;
+    font-weight: 700;
+}
+
+.subMenu .link{
+    font-size: 10pt;
+    font-weight: 700;
+}
+
+.subMenu .back {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.subMenu .back i{
+    font-size: 13pt;
+}
+
+.subMenu .separator{
+    border: 1px solid white;
+    opacity: 0.2;
+    height: 20px;
+}

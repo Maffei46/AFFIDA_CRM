@@ -1,0 +1,250 @@
+form{
+    margin: 0 auto;
+    width: 100%;
+    max-width: 500px;
+    position: relative;
+}
+
+form .input{
+    position: relative;
+    margin-bottom: 15px;
+}
+
+form .input input{
+    width: 100%;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid var(--mainColor);
+    z-index: 5;
+    background-color: var(--mainBGColor);
+}
+form .input input.large{
+    padding: 10px 5px;
+}
+form .input select{
+    width: 100%;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid var(--mainColor);
+    z-index: 5;
+    background-color: var(--mainBGColor);
+}
+form .input textarea{
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    max-height: 50px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid var(--mainColor);
+    z-index: 5;
+    background-color: var(--mainBGColor);
+}
+
+form .input .textAreaBigger{
+    max-height: 150px;
+    min-height: 50px;
+}
+
+form .input input:disabled{
+    background-color: var(--mainBGColor);
+    position: relative;
+    color: rgb(162, 162, 162);
+    border-color: rgb(162, 162, 162);
+}
+
+form .input input:disabled + .label{
+    color: rgb(162, 162, 162);
+}
+
+form .input select:disabled{
+    background-color: var(--mainBGColor);
+    position: relative;
+    color: rgb(162, 162, 162);
+    border-color: rgb(162, 162, 162);
+}
+
+form .input select:disabled + .label{
+    color: rgb(162, 162, 162);
+}
+
+form .input .label{
+    position: absolute;
+    font-size: 9pt;
+    font-weight: 700;
+    top: -8px;
+    left: 8px;
+    background-color: var(--mainBGColor);
+    padding: 0px 5px;
+    z-index: 7;
+    color: var(--mainColor);
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+form .input.ms .label{
+    z-index: 9;
+}
+form .input .multiselect{
+    border: 1px solid var(--mainColor);
+    border-radius: 5px;
+    z-index: 8;
+    background-color: transparent;
+}
+form .input .multiselect__tags{
+    background-color: transparent;
+    border: none;
+}
+form .input .multiselect__tag{
+    background-color: var(--mainColor);
+    color: var(--mainBGColor);
+}
+form .input .multiselect__tag-icon:after{
+    color: var(--mainBGColor);
+}
+
+form .checkbox{
+    display: flex;
+    align-items: center;
+    gap:0px;
+    margin-bottom: 15px;
+}
+form .checkbox .label{
+    font-size: 6pt;
+    font-weight: 700;
+    padding: 0px 5px;
+    z-index: 7;
+    text-align: left;
+    line-height: 6px;
+}
+form .checkbox input[type="checkbox"]{
+    width: 20px;
+    height: 20px;
+}
+
+form button{
+    width: 100%;
+    background-color: var(--mainColor);
+    color:var(--mainBGColor);
+    font-weight: 700;
+    border-radius: 5px;
+    border: 1px solid var(--mainColor);
+    padding: 5px;
+    font-size: 11pt;
+    cursor: pointer;
+    transition-duration: 0.1s;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+form button:hover{
+    border: 1px solid var(--mainColor);
+    background-color: var(--mainBGColor);
+    color: var(--mainColor);
+    transition-duration: 0.1s;
+}
+
+form .formName{
+    margin-bottom: 15px;
+    font-weight: 800;
+    font-size: 20pt;
+}
+form .formName:before{
+    content: '> '
+}
+
+form hr{
+    margin-bottom: 15px;
+}
+form .hr{
+    position: relative;
+    margin-bottom: 15px;
+}
+
+form .hr .hrName{
+    position: absolute;
+    top:-8px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--mainBGColor);
+    padding: 0px 10px;
+    font-size: 10pt;
+    font-weight: 700;
+    color: var(--mainColor);
+}
+
+.button{
+    width: 100%;
+    max-width: 200px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 10px;
+    cursor: pointer;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.button.deleteButton{
+    background-color: var(--deleteColorFont);
+    color: var(--mainColorFont);
+    border: 1px solid var(--deleteColorFont);
+    transition-duration: 0.1s;
+}
+
+.button.deleteButton:hover{
+    color: var(--deleteColorFont);
+    background-color: var(--mainColorFont);
+    
+    transition-duration: 0.1s;
+}
+
+.button.addButton{
+    background-color: var(--addColorFont);
+    color: var(--mainColorFont);
+    transition-duration: 0.1s;
+}
+.button.addButton:hover{
+    background-color: var(--addColorHoverFont);
+    color: var(--mainColorFont);
+    transition-duration: 0.1s;
+}
+
+.button.generalButton{
+    background-color: black;
+    color: white;
+    transition-duration: 0.1s;
+    border: 1px solid black;
+}
+.button.generalButton:hover{
+    background-color: white;
+    color: black;
+    transition-duration: 0.1s;
+}
+
+.button.buttonIcon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button.buttonIcon i{
+    font-size: 12pt;
+    line-height: 16px;
+}
+
+form .flexed{
+    column-gap: 10px;
+    flex-wrap: wrap;
+}
+form .flexed .input{
+    width: calc(33% - 5px);
+}
