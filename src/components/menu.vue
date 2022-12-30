@@ -14,10 +14,10 @@
                     <span>LOGIN</span>
                 </div>
             </router-link>
-            <router-link to="/logged/provvigioni" v-if="logged">
+            <router-link to="/logged/pratiche" v-if="logged">
                 <div class="section">
                     <i class="material-icons">payments</i>
-                    <span>PROVVIGIONI</span>
+                    <span>PRATICHE</span>
                 </div>
             </router-link>
 

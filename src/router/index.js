@@ -3,15 +3,15 @@ import HomeView from '../views/HomeView.vue'
 import LoginView from '../views/LoginView.vue'
 import SettingsView from '../views/SettingsView.vue'
 import LoggedView from '../views/logged/LoggedView.vue'
-import LoggedProvvigioniView from '../views/logged/provvigioni/ProvvigioniView.vue'
+import LoggedPraticheView from '../views/logged/pratiche/PraticheView.vue'
 
 const routes = [
   { path: '/', name: 'home', component: HomeView },
   { path: '/login', name: 'login', component: LoginView },
   { path: '/settings', name: 'settings', component: SettingsView },
   { path: '/logged', component: LoggedView, children:[
-    { path: 'provvigioni', component: LoggedProvvigioniView, children:[
-      { path: 'import', name: 'Provvigioni Import', component: ()=>import('@/views/logged/provvigioni/provvigioni_import.vue') },
+    { path: 'pratiche', component: LoggedPraticheView, children:[
+      { path: 'import', name: 'Pratiche Import', component: ()=>import('@/views/logged/pratiche/pratiche_import.vue') },
     ]},
   ]},
   {

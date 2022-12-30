@@ -55,14 +55,14 @@ protocol.registerSchemesAsPrivileged([
 let win;
 async function createWindow() {
   // Create the browser window.
-  console.log(path.join(__dirname, 'favicon.ico'));
   win = new BrowserWindow({
     width: 1600,
     height: 1200,
-    icon: path.join(__dirname, 'favicon.ico'),
+    icon: 'src/assets/logo.png',
     autoHideMenuBar: true,
     frame: false,
     webPreferences: {
+      nodeIntegrationInWorker: true,
       // Use pluginOptions.nodeIntegration, leave this alone
       // See nklayman.github.io/vue-cli-plugin-electron-builder/guide/security.html#node-integration for more info
       nodeIntegration: process.env.ELECTRON_NODE_INTEGRATION,
@@ -162,3 +162,5 @@ ipcMain.handle('close', (event) => {
 ipcMain.handle('test', (event) => {
   console.log('test');
 });
+
+

@@ -10,6 +10,26 @@
   backdrop-filter: blur(3px);
 }
 
+.loadingWithData{
+  background-color: var(--Color2);
+  padding: 20px 30px;
+  border-radius: 10px;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.loadingWithData .data{
+  text-align: center;
+  font-weight: 500;
+  font-size: 9pt;
+}
+
+.loadingWithData .lds-ring{
+  display: block;
+}
+
 .lds-ring {
     display: inline-block;
     position: relative;

@@ -1,5 +1,5 @@
 <template>
-    <div id="provvigioni">
+    <div id="pratiche">
         <div class="subMenu">
             <router-link to="/">
                 <div class="back">
@@ -9,10 +9,10 @@
             <div class="separator"></div>
             <div class="title">
                 <i class="material-icons">payments</i>
-                <span>PROVVIGIONI</span>
+                <span>PRATICHE</span>
             </div>
             <div class="separator"></div>
-            <router-link to="/logged/provvigioni/import">
+            <router-link to="/logged/pratiche/import">
                 <div class="link">IMPORT</div>
             </router-link>
             <router-link to="">
